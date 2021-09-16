@@ -1,14 +1,21 @@
 import React from 'react';
 import Header from '../components/Header';
+import searchAlbumsAPI from '../services/searchAlbumsAPI';
+import Loading from './Loading';
+import AlbumCard from './AlbumCard';
 
 class Search extends React.Component {
   constructor() {
     super();
     this.state = {
       artistName: '',
+      storedArtistName: '',
+      isSearching: false,
+      receivedAlbums: undefined,
     };
 
     this.handleChange = this.handleChange.bind(this);
+    this.toSearch = this.toSearch.bind(this);
   }
 
   handleChange({ target }) {
@@ -17,28 +24,57 @@ class Search extends React.Component {
     });
   }
 
-  render() {
+  toSearch() {
     const { artistName } = this.state;
+    const storedArtistName = artistName;
+
+    this.setState({
+      storedArtistName,
+      artistName: '',
+      isSearching: true,
+    });
+    searchAlbumsAPI(storedArtistName)
+      .then((response) => this.setState({
+        receivedAlbums: response,
+        isSearching: false,
+      }));
+  }
+
+  render() {
+    const { isSearching, receivedAlbums, artistName, storedArtistName } = this.state;
+
     return (
       <div data-testid="page-search">
         <Header />
-        <form>
-          <input
-            type="text"
-            data-testid="search-artist-input"
-            placeholder="Nome do Artista"
-            value={ artistName }
-            onChange={ this.handleChange }
+        <section>
+          <form>
+            <input
+              type="text"
+              data-testid="search-artist-input"
+              placeholder="Nome do Artista"
+              value={ artistName }
+              onChange={ this.handleChange }
+            />
+            <button
+              type="submit"
+              data-testid="search-artist-button"
+              disabled={ artistName.length < 2 }
+              onClick={ this.toSearch }
+            >
+              Procurar
+            </button>
+          </form>
+        </section>
+        { isSearching ? <Loading /> : null }
+        {
+          receivedAlbums ? <AlbumCard
+            albums={ receivedAlbums }
+            artistName={ storedArtistName }
           />
-          <button
-            type="submit"
-            data-testid="search-artist-button"
-            disabled={ artistName.length < 2 }
-          >
-            Procurar
-          </button>
-        </form>
-      </div>);
+            : null
+        }
+      </div>
+    );
   }
 }
 
