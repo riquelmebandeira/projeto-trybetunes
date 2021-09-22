@@ -1,7 +1,7 @@
 import React from 'react';
 import Header from '../components/Header';
 import searchAlbumsAPI from '../services/searchAlbumsAPI';
-import Loading from './Loading';
+import Loading from '../components/Loading';
 import AlbumCard from './AlbumCard';
 
 class Search extends React.Component {

@@ -1,7 +1,7 @@
 import React from 'react';
 import { Redirect } from 'react-router-dom';
 import { createUser } from '../services/userAPI';
-import Loading from './Loading';
+import Loading from '../components/Loading';
 
 /**
  * Consultei o repositório do Tiago Sathler para resolver a parte do loading e redirecionamento
