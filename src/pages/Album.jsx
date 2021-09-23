@@ -13,6 +13,7 @@ class Album extends React.Component {
       artistName: '',
       collectionName: '',
       artworkUrl100: '',
+      loading: true,
     };
 
     this.getAlbumSongs = this.getAlbumSongs.bind(this);
@@ -30,18 +31,15 @@ class Album extends React.Component {
       artistName,
       collectionName,
       artworkUrl100,
-    }, () => {
-      // result.shift();
-      this.setState({
-        albumSongs: result,
-      });
+      albumSongs: result,
+      loading: false,
     });
   }
 
   render() {
-    const { albumSongs, collectionName, artistName, artworkUrl100 } = this.state;
+    const { albumSongs, collectionName, artistName, artworkUrl100, loading } = this.state;
 
-    if (!albumSongs) {
+    if (loading) {
       return (
         <>
           <Header />
@@ -49,7 +47,6 @@ class Album extends React.Component {
         </>
       );
     }
-
     return (
       <div data-testid="page-album">
         <Header />
@@ -63,7 +60,16 @@ class Album extends React.Component {
               { artistName }
             </span>
           </section>
-          <MusicCard albumSongs={ albumSongs } />
+          <section>
+            { albumSongs.map((trackInfo, index) => {
+              if (index === 0) return null;
+              return (
+                <MusicCard
+                  key={ trackInfo.trackId }
+                  trackInfo={ trackInfo }
+                />);
+            })}
+          </section>
         </main>
       </div>);
   }
