@@ -4,6 +4,7 @@ import Header from '../components/Header';
 import getMusics from '../services/musicsAPI';
 import Loading from '../components/Loading';
 import MusicCard from '../components/MusicCard';
+import { addSong } from '../services/favoriteSongsAPI';
 
 class Album extends React.Component {
   constructor() {
@@ -17,6 +18,7 @@ class Album extends React.Component {
     };
 
     this.getAlbumSongs = this.getAlbumSongs.bind(this);
+    this.waitForAddSong = this.waitForAddSong.bind(this);
   }
 
   componentDidMount() {
@@ -36,15 +38,22 @@ class Album extends React.Component {
     });
   }
 
+  async waitForAddSong(trackInfo) {
+    this.setState({
+      loading: true,
+    });
+    await addSong(trackInfo);
+    this.setState({
+      loading: false,
+    });
+  }
+
   render() {
     const { albumSongs, collectionName, artistName, artworkUrl100, loading } = this.state;
 
     if (loading) {
       return (
-        <>
-          <Header />
-          <Loading />
-        </>
+        <Loading />
       );
     }
     return (
@@ -67,6 +76,7 @@ class Album extends React.Component {
                 <MusicCard
                   key={ trackInfo.trackId }
                   trackInfo={ trackInfo }
+                  waitForAddSong={ this.waitForAddSong }
                 />);
             })}
           </section>
