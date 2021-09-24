@@ -4,13 +4,12 @@ import Header from '../components/Header';
 import getMusics from '../services/musicsAPI';
 import Loading from '../components/Loading';
 import MusicCard from '../components/MusicCard';
-import { addSong } from '../services/favoriteSongsAPI';
 
 class Album extends React.Component {
   constructor() {
     super();
     this.state = {
-      albumSongs: '',
+      albumSongs: [],
       artistName: '',
       collectionName: '',
       artworkUrl100: '',
@@ -18,7 +17,6 @@ class Album extends React.Component {
     };
 
     this.getAlbumSongs = this.getAlbumSongs.bind(this);
-    this.waitForAddSong = this.waitForAddSong.bind(this);
   }
 
   componentDidMount() {
@@ -27,29 +25,20 @@ class Album extends React.Component {
 
   async getAlbumSongs() {
     const { match: { params } } = this.props;
-    const result = await getMusics(params.id);
-    const { artistName, collectionName, artworkUrl100 } = result[0];
+    const allSongs = await getMusics(params.id);
+    const { artistName, collectionName, artworkUrl100 } = allSongs[0];
     this.setState({
       artistName,
       collectionName,
       artworkUrl100,
-      albumSongs: result,
-      loading: false,
-    });
-  }
-
-  async waitForAddSong(trackInfo) {
-    this.setState({
-      loading: true,
-    });
-    await addSong(trackInfo);
-    this.setState({
+      albumSongs: allSongs,
       loading: false,
     });
   }
 
   render() {
-    const { albumSongs, collectionName, artistName, artworkUrl100, loading } = this.state;
+    const { albumSongs, collectionName, artistName,
+      artworkUrl100, loading } = this.state;
 
     if (loading) {
       return (
@@ -76,7 +65,6 @@ class Album extends React.Component {
                 <MusicCard
                   key={ trackInfo.trackId }
                   trackInfo={ trackInfo }
-                  waitForAddSong={ this.waitForAddSong }
                 />);
             })}
           </section>
