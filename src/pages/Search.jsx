@@ -3,6 +3,7 @@ import Header from '../components/Header';
 import searchAlbumsAPI from '../services/searchAlbumsAPI';
 import Loading from '../components/Loading';
 import Albums from './Albums';
+import '../styles/pages/Search.css';
 
 class Search extends React.Component {
   constructor() {
@@ -46,7 +47,7 @@ class Search extends React.Component {
     return (
       <div data-testid="page-search">
         <Header />
-        <section>
+        <section className="search-form-container">
           <form>
             <input
               type="text"
