@@ -1,0 +1,47 @@
+@import url('https://fonts.googleapis.com/css2?family=Epilogue:wght@100&family=Merriweather+Sans:wght@500&display=swap') ;
+
+.albums-cards-container {
+  display: flex;
+  gap: 10px;
+  margin: auto;
+  margin-bottom: 200px;
+  overflow-x: scroll;
+  width: 1150px;
+}
+
+.albums-cards-container::-webkit-scrollbar {
+  width: 16px;
+}
+
+.albums-cards-container::-webkit-scrollbar-track {
+  background-color: #e4e4e4;
+  border-radius: 100px;
+}
+
+.albums-cards-container::-webkit-scrollbar-thumb {
+  background-color: #3d495c;
+  border-radius: 100px;
+}
+
+.albums-cards-container div > * {
+  color: #3d495c;
+  font-family: Verdana , Geneva , Tahoma , sans-serif;
+}
+
+.albums-cards-container div a {
+  font-weight: 800;
+  text-decoration: none;
+}
+
+.albums-cards-container div img {
+  height: 180px;
+  object-fit: cover;
+  width: 280px;
+}
+
+h3 {
+  font-family: Epilogue , sans-serif;
+  margin-left: 156px;
+  padding-bottom: 20px;
+}
+
