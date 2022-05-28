@@ -2,6 +2,8 @@ import React from 'react';
 import { Redirect } from 'react-router-dom';
 import { createUser } from '../services/userAPI';
 import Loading from '../components/Loading';
+import logo from '../assets/logo.png';
+import '../styles/pages/Login.css';
 
 /**
  * Consultei o repositório do Tiago Sathler para resolver a parte do loading e redirecionamento
@@ -50,7 +52,8 @@ class Login extends React.Component {
     if (loading) return <Loading />;
     if (loggedIn) return <Redirect to="/search" />;
     return (
-      <div data-testid="page-login">
+      <div className="login-form-container" data-testid="page-login">
+        <img src={ logo } alt="logotipo do TrybeTunes" />
         <form>
           <input
             type="text"
