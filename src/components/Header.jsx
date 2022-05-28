@@ -2,6 +2,8 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import Loading from './Loading';
 import { getUser } from '../services/userAPI';
+import headerLogo from '../assets/header-logo.png';
+import '../styles/components/Header.css';
 
 class Header extends React.Component {
   constructor() {
@@ -25,6 +27,7 @@ class Header extends React.Component {
     if (!retrievedInfo) return <Loading />;
     return (
       <header data-testid="header-component">
+        <img src={ headerLogo } alt="logotipo do TrybeTunes" />
         <span data-testid="header-user-name">
           { retrievedInfo.name }
         </span>
