@@ -4,6 +4,7 @@ import Header from '../components/Header';
 import getMusics from '../services/musicsAPI';
 import Loading from '../components/Loading';
 import MusicCard from '../components/MusicCard';
+import '../styles/pages/Album.css';
 
 class Album extends React.Component {
   constructor() {
@@ -48,8 +49,8 @@ class Album extends React.Component {
     return (
       <div data-testid="page-album">
         <Header />
-        <main>
-          <section>
+        <main className="album-details-container">
+          <section className="album-info-container">
             <img src={ artworkUrl100 } alt="Capa do álbum" />
             <h3 data-testid="album-name">
               { collectionName }
@@ -58,7 +59,7 @@ class Album extends React.Component {
               { artistName }
             </span>
           </section>
-          <section>
+          <section className="album-songs-container">
             { albumSongs.map((trackInfo, index) => {
               if (index === 0) return null;
               return (

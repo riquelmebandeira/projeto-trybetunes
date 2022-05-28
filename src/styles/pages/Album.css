@@ -1,0 +1,35 @@
+@import url('https://fonts.googleapis.com/css2?family=Epilogue:wght@100;400&family=Merriweather+Sans:wght@500&display=swap') ;
+
+.album-details-container {
+  display: flex;
+  justify-content: space-evenly;
+  padding: 120px;
+}
+
+.album-info-container {
+  color: #023031;
+  font-family: Epilogue , sans-serif;
+}
+
+.album-info-container h3 {
+  margin: auto;
+}
+
+.album-info-container img {
+  border-radius: 4px;
+  margin-bottom: 30px;
+  width: 300px;
+}
+
+.album-songs-container {
+  display: flex;
+  flex-direction: column;
+  font-family: Epilogue , sans-serif;
+  row-gap: 10px;
+}
+
+.album-songs-container div {
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+}
