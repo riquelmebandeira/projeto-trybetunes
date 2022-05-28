@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 
-class AlbumCard extends React.Component {
+class Albums extends React.Component {
   render() {
     const { albums, artistName: name } = this.props;
     if (albums.length < 1) return <h3>Nenhum álbum foi encontrado</h3>;
@@ -33,8 +33,8 @@ class AlbumCard extends React.Component {
   }
 }
 
-AlbumCard.propTypes = {
+Albums.propTypes = {
   albums: PropTypes.array,
 }.isRequired;
 
-export default AlbumCard;
+export default Albums;

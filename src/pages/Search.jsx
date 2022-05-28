@@ -2,7 +2,7 @@ import React from 'react';
 import Header from '../components/Header';
 import searchAlbumsAPI from '../services/searchAlbumsAPI';
 import Loading from '../components/Loading';
-import AlbumCard from './AlbumCard';
+import Albums from './Albums';
 
 class Search extends React.Component {
   constructor() {
@@ -67,7 +67,7 @@ class Search extends React.Component {
         </section>
         { isSearching ? <Loading /> : null }
         {
-          receivedAlbums ? <AlbumCard
+          receivedAlbums ? <Albums
             albums={ receivedAlbums }
             artistName={ storedArtistName }
           />
