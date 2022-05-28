@@ -24,7 +24,7 @@ Input.propTypes = {
   onChange: PropTypes.func,
   dataTestId: PropTypes.string,
   placeHolder: PropTypes.string,
-  type: PropTypes.string.isRequired,
+  type: PropTypes.string,
   value: PropTypes.string,
   id: PropTypes.string,
 };
@@ -34,6 +34,7 @@ Input.defaultProps = {
   onChange: () => {},
   dataTestId: '',
   placeHolder: '',
+  type: 'text',
   value: PropTypes.string.isRequired,
   id: '',
 };
