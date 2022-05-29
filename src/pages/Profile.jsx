@@ -3,6 +3,7 @@ import Header from '../components/Header';
 import ProfileStructure from '../components/ProfileStructure';
 import { getUser } from '../services/userAPI';
 import Loading from '../components/Loading';
+import '../styles/components/ProfileStructure.css';
 
 class Profile extends React.Component {
   constructor() {
@@ -10,29 +11,24 @@ class Profile extends React.Component {
     this.state = {
       name: '',
       email: '',
-      img: '',
-      about: '',
+      image: '',
+      description: '',
     };
   }
 
   componentDidMount() {
     getUser()
-      .then(({ name, email, image: img, description: about }) => this.setState({
-        name,
-        email,
-        img,
-        about,
-      }));
+      .then((userData) => this.setState({ ...userData }));
   }
 
   render() {
-    const { name, email, img, about } = this.state;
+    const { name, email, image, description } = this.state;
+
     return (
       <div data-testid="page-profile">
         <Header />
-        { !name
-          ? <Loading />
-          : <ProfileStructure { ...{ name, email, img, about } } /> }
+        { !name ? <Loading />
+          : <ProfileStructure { ...{ name, email, image, description } } />}
       </div>
     );
   }
