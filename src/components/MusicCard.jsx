@@ -35,29 +35,32 @@ class MusicCard extends React.Component {
   };
 
   render() {
-    const { trackInfo } = this.props;
+    const { trackInfo, isFavorite } = this.props;
+    const { trackId, trackName, previewUrl, artworkUrl100 } = trackInfo;
+
     const { loading, favorites } = this.state;
 
     if (loading) return <Loading />;
 
     return (
-      <div key={ trackInfo.trackId }>
+      <div key={ trackId }>
+        { isFavorite && <img src={ artworkUrl100 } alt="foto do álbum" />}
         <span>
-          { trackInfo.trackName }
+          { trackName }
         </span>
-        <audio data-testid="audio-component" src={ trackInfo.previewUrl } controls>
+        <audio data-testid="audio-component" src={ previewUrl } controls>
           <track kind="captions" />
           O seu navegador não suporta o elemento
           {' '}
           <code>audio</code>
           .
         </audio>
-        <label htmlFor={ trackInfo.trackId }>
+        <label htmlFor={ trackId }>
           <input
             type="checkbox"
-            id={ trackInfo.trackId }
-            data-testid={ `checkbox-music-${trackInfo.trackId}` }
-            checked={ favorites.some((song) => song.trackId === trackInfo.trackId) }
+            id={ trackId }
+            data-testid={ `checkbox-music-${trackId}` }
+            checked={ favorites.some((song) => song.trackId === trackId) }
             onChange={ (e) => this.handleTrack(e) }
           />
           Favorita
@@ -68,9 +71,17 @@ class MusicCard extends React.Component {
 }
 
 MusicCard.propTypes = {
-  trackInfo: PropTypes.object,
-  waitForAddSong: PropTypes.func,
+  trackInfo: PropTypes.shape({
+    trackId: PropTypes.string.isRequired,
+    trackName: PropTypes.string.isRequired,
+    previewUrl: PropTypes.string.isRequired,
+    artworkUrl100: PropTypes.string.isRequired,
+  }).isRequired,
   isFavorite: PropTypes.bool,
-}.isRequired;
+};
+
+MusicCard.defaultProps = {
+  isFavorite: false,
+};
 
 export default MusicCard;
