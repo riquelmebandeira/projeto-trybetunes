@@ -8,7 +8,7 @@ header {
   justify-content: space-between;
 }
 
-header img {
+.trybetunes-logo {
   margin-bottom: 16px;
   margin-left: 20px;
   width: 106px;
@@ -26,11 +26,18 @@ header nav {
   border-radius: 20px;
   color: #29313d;
   display: flex;
+  gap: 20px;
   height: 40px;
-  justify-content: center;
+  justify-content: flex-start;
   margin-right: 26px;
   margin-top: 24px;
   width: 200px;
+}
+
+.username-container img {
+  border-radius: 50%;
+  margin-left: 4px;
+  width: 30px;
 }
 
 header nav > * {
@@ -48,4 +55,3 @@ header nav > *:hover {
   background-color: #036b52;
   color: white;
 }
-

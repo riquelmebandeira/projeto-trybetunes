@@ -3,34 +3,46 @@ import { Link } from 'react-router-dom';
 import Loading from './Loading';
 import { getUser } from '../services/userAPI';
 import headerLogo from '../assets/header-logo.png';
+import noPicture from '../assets/no-picture-small.png';
 import '../styles/components/Header.css';
 
 class Header extends React.Component {
   constructor() {
     super();
     this.state = {
-      retrievedInfo: undefined,
+      name: '',
+      image: '',
     };
   }
 
   componentDidMount() {
     getUser()
       .then((response) => {
-        this.setState({
-          retrievedInfo: response,
-        });
+        this.setState({ ...response });
       });
   }
 
   render() {
-    const { retrievedInfo } = this.state;
-    if (!retrievedInfo) return <Loading />;
+    const { name, image } = this.state;
+
+    if (!name) return <Loading />;
+
     return (
       <header data-testid="header-component">
-        <img src={ headerLogo } alt="logotipo do TrybeTunes" />
-        <span className="username-container" data-testid="header-user-name">
-          { retrievedInfo.name }
-        </span>
+        <img
+          className="trybetunes-logo"
+          src={ headerLogo }
+          alt="logotipo do TrybeTunes"
+        />
+        <div className="username-container">
+          <img
+            src={ image || noPicture }
+            alt="Foto de perfil"
+          />
+          <span data-testid="header-user-name">
+            { name }
+          </span>
+        </div>
         <nav>
           <Link to="/search" data-testid="link-to-search">
             Pesquisa
