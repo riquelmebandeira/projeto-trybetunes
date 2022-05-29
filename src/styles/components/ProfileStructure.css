@@ -1,0 +1,29 @@
+@import url('https://fonts.googleapis.com/css2?family=Epilogue:wght@100;400&family=Merriweather+Sans:wght@500&display=swap') ;
+
+.user-profile-container {
+  color: #3d495c;
+  font-family: Verdana , Geneva , Tahoma , sans-serif;
+  height: 500px;
+  margin: auto;
+  margin-top: 60px;
+  width: 360px;
+}
+
+.user-profile-container p {
+  font-size: 18px;
+  margin-top: -20px;
+}
+
+.edit-section {
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+}
+
+.profile-edit-btn {
+  border: 1px solid #003be5;
+  border-radius: 5px;
+  color: #003be5;
+  padding: 6px;
+  text-decoration: none;
+}
