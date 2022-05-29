@@ -1,0 +1,51 @@
+.user-profile-form {
+  align-items: center;
+  color: #3d495c;
+  display: flex;
+  flex-direction: column;
+  font-family: Verdana , Geneva , Tahoma , sans-serif;
+  height: 500px;
+  margin: auto;
+  margin-top: 60px;
+  row-gap: 28px;
+  width: 360px;
+}
+
+.profile-picture-container {
+  align-items: baseline;
+  display: flex;
+  gap: 20px;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.user-profile-form label {
+  display: flex;
+  flex-direction: column;
+  font-weight: 800;
+  row-gap: 10px;
+  width: 100%;
+}
+
+.user-profile-form input, textarea {
+  border: none;
+  border-bottom: 1px solid #3d495c;
+}
+
+.save-profile-btn {
+  background-color: #003be5;
+  border-radius: 2px;
+  color: white;
+  padding: 8px;
+  width: 120px;
+}
+
+.save-profile-btn:disabled {
+  background: rgb(160, 160, 160);
+  color: rgb(75, 75, 75);
+  opacity: 0.6;
+}
+
+.profile-picture {
+  width: 80px;
+}

@@ -3,6 +3,8 @@ import { Link } from 'react-router-dom';
 import Header from '../components/Header';
 import Input from '../components/Input';
 import { getUser, updateUser } from '../services/userAPI';
+import noPicture from '../assets/no-picture-big.png';
+import '../styles/pages/ProfileEdit.css';
 
 class ProfileEdit extends React.Component {
   constructor() {
@@ -53,13 +55,20 @@ class ProfileEdit extends React.Component {
       <div data-testid="page-profile-edit">
         <Header />
         <main>
-          <form>
-            <Input
-              id="image"
-              value={ image }
-              onChange={ this.handleChange }
-              dataTestId="edit-input-image"
-            />
+          <form className="user-profile-form">
+            <div className="profile-picture-container">
+              <img
+                src={ image || noPicture }
+                alt="Foto de perfil"
+                className="profile-picture"
+              />
+              <Input
+                id="image"
+                value={ image }
+                onChange={ this.handleChange }
+                dataTestId="edit-input-image"
+              />
+            </div>
             <Input
               labelText="Nome"
               id="name"
@@ -87,6 +96,7 @@ class ProfileEdit extends React.Component {
               <button
                 type="submit"
                 data-testid="edit-button-save"
+                className="save-profile-btn"
                 disabled={
                   !image
                 || !name
