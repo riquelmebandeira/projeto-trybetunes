@@ -28,7 +28,7 @@ class Header extends React.Component {
     return (
       <header data-testid="header-component">
         <img src={ headerLogo } alt="logotipo do TrybeTunes" />
-        <span data-testid="header-user-name">
+        <span className="username-container" data-testid="header-user-name">
           { retrievedInfo.name }
         </span>
         <nav>

@@ -1,7 +1,10 @@
+@import url('https://fonts.googleapis.com/css2?family=Merriweather+Sans:wght@500&display=swap') ;
+
 header {
   background-color: #023031;
   display: flex;
   flex-wrap: wrap;
+  font-family: Merriweather Sans , sans-serif;
   justify-content: space-between;
 }
 
@@ -17,7 +20,7 @@ header nav {
   width: 100%;
 }
 
-span {
+.username-container {
   align-items: center;
   background-color: white;
   border-radius: 20px;
