@@ -43,7 +43,7 @@ class MusicCard extends React.Component {
     if (loading) return <Loading />;
 
     return (
-      <div key={ trackId }>
+      <div className="music-card-container" key={ trackId }>
         { isFavorite && <img src={ artworkUrl100 } alt="foto do álbum" />}
         <span>
           { trackName }

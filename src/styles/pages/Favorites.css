@@ -1,0 +1,29 @@
+@import url('https://fonts.googleapis.com/css2?family=Epilogue:wght@100;400&family=Merriweather+Sans:wght@500&display=swap') ;
+
+.favorite-songs-header {
+  color: #001813;
+  font-family: Epilogue , sans-serif;
+  font-weight: 400;
+  margin-top: 80px;
+}
+
+.favorite-songs-container {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  row-gap: 16px;
+}
+
+.music-card-container {
+  align-items: center;
+  box-shadow: 0.1px 3px 2px rgb(224, 224, 224);
+  display: flex;
+  justify-content: space-between;
+  padding: 10px;
+  width: 800px;
+}
+
+.music-card-container img {
+  border-radius: 50%;
+  width: 60px;
+}
