@@ -2,7 +2,7 @@ import React from 'react';
 import Header from '../components/Header';
 import searchAlbumsAPI from '../services/searchAlbumsAPI';
 import Loading from '../components/Loading';
-import Albums from './Albums';
+import AlbumsList from '../components/AlbumsList';
 import '../styles/pages/Search.css';
 
 class Search extends React.Component {
@@ -66,13 +66,12 @@ class Search extends React.Component {
             </button>
           </form>
         </section>
-        { isSearching ? <Loading /> : null }
+        { isSearching && <Loading /> }
         {
-          receivedAlbums ? <Albums
+          receivedAlbums && <AlbumsList
             albums={ receivedAlbums }
             artistName={ storedArtistName }
           />
-            : null
         }
       </div>
     );
