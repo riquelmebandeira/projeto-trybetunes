@@ -18,12 +18,8 @@ class ProfileEdit extends React.Component {
   }
 
   componentDidMount() {
-    this.setUser();
-  }
-
-  setUser = async () => {
-    const user = await getUser();
-    this.setState({ ...user });
+    getUser()
+      .then((userData) => this.setState({ ...userData }));
   }
 
   handleChange = ({ target }) => {
