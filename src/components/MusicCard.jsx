@@ -72,7 +72,7 @@ class MusicCard extends React.Component {
 
 MusicCard.propTypes = {
   trackInfo: PropTypes.shape({
-    trackId: PropTypes.string.isRequired,
+    trackId: PropTypes.number.isRequired,
     trackName: PropTypes.string.isRequired,
     previewUrl: PropTypes.string.isRequired,
     artworkUrl100: PropTypes.string.isRequired,
