@@ -26,7 +26,6 @@ header nav {
   border-radius: 20px;
   color: #29313d;
   display: flex;
-  gap: 20px;
   height: 40px;
   justify-content: flex-start;
   margin-right: 26px;
@@ -36,8 +35,17 @@ header nav {
 
 .username-container img {
   border-radius: 50%;
-  margin-left: 4px;
+  margin: 4px;
   width: 30px;
+}
+
+.username-container span {
+  display: block;
+  overflow: hidden;
+  text-align: center;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  width: 140px;
 }
 
 header nav > * {

@@ -33,3 +33,11 @@
   display: flex;
   justify-content: space-between;
 }
+
+.music-card-container span {
+  display: block;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  width: 200px;
+}
