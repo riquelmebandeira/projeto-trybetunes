@@ -9,6 +9,8 @@
 
 .search-form-container form input {
   border-radius: 6px;
+  font-family: Verdana , Geneva , Tahoma , sans-serif;
+  font-size: 16px;
   height: 32px;
   text-indent: 10px;
   width: 400px;

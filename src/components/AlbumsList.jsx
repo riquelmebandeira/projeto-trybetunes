@@ -11,12 +11,12 @@ class Albums extends React.Component {
       <main>
         { albums.length < 1 ? <h3>Nenhum álbum foi encontrado</h3>
           : (
-            <>
+            <section className="albums-section">
               <h3>{`Resultado de álbuns de: ${artistName}`}</h3>
-              <section className="albums-cards-container">
+              <div className="albums-cards-container">
                 {albums.map((album, index) => <AlbumCard key={ index } data={ album } />)}
-              </section>
-            </>
+              </div>
+            </section>
           ) }
       </main>
     );

@@ -1,5 +1,20 @@
 @import url('https://fonts.googleapis.com/css2?family=Epilogue:wght@100&family=Merriweather+Sans:wght@500&display=swap') ;
 
+.albums-section {
+  display: flex;
+  flex-direction: column;
+  margin: auto;
+  width: fit-content;
+}
+
+.albums-section h3 {
+  align-self: flex-start;
+  color: #001813;
+  font-family: Epilogue , sans-serif;
+  font-weight: 400;
+  padding-bottom: 20px;
+}
+
 .albums-cards-container {
   display: flex;
   gap: 10px;
@@ -38,10 +53,3 @@
   object-fit: cover;
   width: 280px;
 }
-
-h3 {
-  font-family: Epilogue , sans-serif;
-  margin-left: 156px;
-  padding-bottom: 20px;
-}
-

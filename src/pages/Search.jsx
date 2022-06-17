@@ -66,13 +66,13 @@ class Search extends React.Component {
             </button>
           </form>
         </section>
-        { isSearching && <Loading /> }
-        {
-          receivedAlbums && <AlbumsList
-            albums={ receivedAlbums }
-            artistName={ storedArtistName }
-          />
-        }
+        { isSearching ? <Loading />
+          : (
+            receivedAlbums && <AlbumsList
+              albums={ receivedAlbums }
+              artistName={ storedArtistName }
+            />
+          )}
       </div>
     );
   }
