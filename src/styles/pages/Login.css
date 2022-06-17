@@ -1,6 +1,9 @@
 .login-form-container {
-  margin-top: 76px;
+  left: 50%;
+  margin: -200px -260px;
+  position: fixed;
   text-align: center;
+  top: 50%;
 }
 
 .login-form-container form {
