@@ -1,9 +1,10 @@
-@import url('https://fonts.googleapis.com/css2?family=Merriweather+Sans:wght@500&display=swap') ;
+@import url('https://fonts.googleapis.com/css2?family=Epilogue:wght@100;400&family=Merriweather+Sans:wght@500&display=swap') ;
 
 .loading-message-container {
   align-items: center;
   color: #023031;
   display: flex;
-  font-family: Merriweather Sans , sans-serif;
+  font-family: Epilogue , sans-serif;
+  height: 74px;
   justify-content: center;
 }
