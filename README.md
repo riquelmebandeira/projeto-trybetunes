@@ -11,13 +11,27 @@ A aplicação foi feita com React, com base em um protótipo do Figma para o lay
 * React
 * CSS
 
-## Instalando Dependências
+## Instalando o projeto
+
+1. Clone o repositório:
+
+```
+git clone git@github.com:riquelmebandeira/projeto-trybetunes.git
+```
+
+2. Entre na pasta do repositório clonado:
+
+```
+cd projeto-trybetunes
+```
+
+3. Instale as dependências com o comando:
 
 ```
 npm install
-``` 
+```
 
-## Executando aplicação
+## Executando a aplicação
 
   ```
   npm start
