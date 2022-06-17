@@ -28,18 +28,26 @@ class Favorites extends React.Component {
     const { favorites } = this.state;
 
     return (
-      <div data-testid="page-favorites">
+      <>
         <Header />
-        <h3 className="favorite-songs-header">Músicas favoritas:</h3>
-        <section className="favorite-songs-container">
-          { favorites.map((trackInfo) => (
-            <MusicCard
-              key={ trackInfo.trackId }
-              trackInfo={ trackInfo }
-              isFavorite
-            />))}
-        </section>
-      </div>);
+        <main className="page-favorites">
+          {
+            favorites.length < 1 ? <h3>Você não favoritou nenhuma música.</h3>
+              : (
+                <>
+                  <h3 className="favorite-songs-header">Músicas favoritas:</h3>
+                  <section className="favorite-songs-container">
+                    { favorites.map((trackInfo) => (
+                      <MusicCard
+                        key={ trackInfo.trackId }
+                        trackInfo={ trackInfo }
+                      />))}
+                  </section>
+                </>
+              )
+          }
+        </main>
+      </>);
   }
 }
 

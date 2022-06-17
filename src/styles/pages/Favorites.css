@@ -1,10 +1,19 @@
 @import url('https://fonts.googleapis.com/css2?family=Epilogue:wght@100;400&family=Merriweather+Sans:wght@500&display=swap') ;
 
-.favorite-songs-header {
+.page-favorites {
+  display: flex;
+  flex-direction: column;
+  margin: auto;
+  width: fit-content;
+}
+
+.page-favorites h3 {
+  align-self: flex-start;
   color: #001813;
   font-family: Epilogue , sans-serif;
   font-weight: 400;
   margin-top: 80px;
+  padding-bottom: 20px;
 }
 
 .favorite-songs-container {
