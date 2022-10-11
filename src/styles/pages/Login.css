@@ -1,37 +1,43 @@
 .login-form-container {
   left: 50%;
-  margin: -200px -260px;
-  position: fixed;
+  position: absolute;
   text-align: center;
   top: 50%;
+  transform: translate(-50%, -55%);
 }
 
 .login-form-container form {
-  box-shadow: 0.1px 3px 8px rgb(173, 173, 173);
   display: flex;
-  flex-wrap: wrap;
+  flex-direction: column;
   margin: auto;
-  margin-top: 110px;
-  padding: 60px;
+  margin-top: 11rem;
   row-gap: 12px;
-  width: 400px;
+  width: 31rem;
 }
 
 .login-form-container form input {
-  height: 32px;
-  text-indent: 10px;
-  width: 400px;
+  height: 4rem;
+  text-indent: 1rem;
 }
 
 .login-form-container form button {
   background-color: #003be5;
+  border: none;
   color: white;
-  height: 32px;
-  width: 400px;
+  height: 4rem;
 }
 
 .login-form-container form button:disabled {
   background: rgb(160, 160, 160);
   color: rgb(75, 75, 75);
   opacity: 0.6;
+}
+
+@media only screen and ( min-width : 30em ) {
+
+  .login-form-container {
+    border-radius: 1rem;
+    box-shadow: 0.1px 3px 8px rgb(173, 173, 173);
+    padding: 8rem 6rem;
+  }
 }

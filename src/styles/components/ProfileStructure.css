@@ -1,22 +1,26 @@
-@import url('https://fonts.googleapis.com/css2?family=Epilogue:wght@100;400&family=Merriweather+Sans:wght@500&display=swap') ;
-
 .user-profile-container {
   color: #3d495c;
-  font-family: Verdana , Geneva , Tahoma , sans-serif;
-  height: 500px;
+  height: 50rem;
   margin: auto;
-  margin-top: 60px;
-  width: 360px;
+  margin-top: 6rem;
+  max-width: 36rem;
+  padding: 0 1rem;
+}
+
+.user-profile-container h4 {
+  font-size: 1.6rem;
 }
 
 .user-profile-container p {
-  font-size: 18px;
-  margin-top: -20px;
+  font-size: 1.8rem;
+  font-weight: 300;
 }
 
 .user-profile-container img {
   border-radius: 50%;
-  width: 80px;
+  height: 10rem;
+  object-fit: cover;
+  width: 10rem;
 }
 
 .edit-section {
@@ -29,6 +33,7 @@
   border: 1px solid #003be5;
   border-radius: 5px;
   color: #003be5;
+  font-size: 1.5rem;
   padding: 6px;
   text-decoration: none;
 }

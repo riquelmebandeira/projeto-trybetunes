@@ -1,24 +1,17 @@
-@import url('https://fonts.googleapis.com/css2?family=Epilogue:wght@100;400&family=Merriweather+Sans:wght@500&display=swap') ;
-
 .page-favorites {
   display: flex;
   flex-direction: column;
-  margin: auto;
-  width: fit-content;
+  margin: 0 auto;
+  max-width: 90rem;
+  padding: 0 1rem;
+  padding-bottom: 6rem;
 }
 
 .page-favorites h3 {
   align-self: flex-start;
   color: #001813;
-  font-family: Epilogue , sans-serif;
+  font-size: 1.8rem;
   font-weight: 400;
-  margin-top: 80px;
-  padding-bottom: 20px;
-}
-
-.favorite-songs-container {
-  align-items: center;
-  display: flex;
-  flex-direction: column;
-  row-gap: 16px;
+  margin-bottom: 2.6rem;
+  margin-top: 5rem;
 }

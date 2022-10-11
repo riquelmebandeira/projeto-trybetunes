@@ -36,7 +36,7 @@ class Favorites extends React.Component {
               : (
                 <>
                   <h3 className="favorite-songs-header">Músicas favoritas:</h3>
-                  <section className="favorite-songs-container">
+                  <section>
                     { favorites.map((trackInfo) => (
                       <MusicCard
                         key={ trackInfo.trackId }

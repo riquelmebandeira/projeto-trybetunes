@@ -3,7 +3,6 @@ import Header from '../components/Header';
 import ProfileStructure from '../components/ProfileStructure';
 import { getUser } from '../services/userAPI';
 import Loading from '../components/Loading';
-import '../styles/components/ProfileStructure.css';
 
 class Profile extends React.Component {
   constructor() {

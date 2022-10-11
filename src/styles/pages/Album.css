@@ -1,36 +1,67 @@
-@import url('https://fonts.googleapis.com/css2?family=Epilogue:wght@100;400&family=Merriweather+Sans:wght@500&display=swap') ;
-
 .album-details-container {
   display: flex;
-  justify-content: space-evenly;
-  padding: 120px;
+  justify-content: space-between;
+  margin: auto;
+  margin-top: 6rem;
+  max-width: 115rem;
+  padding-bottom: 6rem;
 }
 
 .album-info-container {
   color: #023031;
-  font-family: Epilogue , sans-serif;
 }
 
 .album-info-container h3 {
+  font-size: 2rem;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  width: 30rem;
+}
+
+.album-info-container span {
+  display: inline-block;
+  font-size: 1.6rem;
+  font-weight: 300;
   margin: auto;
 }
 
 .album-info-container img {
   border-radius: 4px;
-  margin-bottom: 30px;
-  width: 300px;
+  margin-bottom: 1rem;
+  width: 30rem;
 }
 
 .album-songs-container {
   align-items: center;
   display: flex;
   flex-direction: column;
-  font-family: Epilogue , sans-serif;
-  row-gap: 10px;
+  padding: 0 1rem;
+  row-gap: 1rem;
+  width: 70%;
 }
 
 .album-songs-container div {
   align-items: center;
   display: flex;
   justify-content: space-between;
+}
+
+@media only screen and ( max-width : 75em ) {
+
+  .album-details-container {
+    align-items: center;
+    flex-direction: column;
+  }
+
+  .album-info-container span {
+    margin-bottom: 3rem;
+  }
+}
+
+@media only screen and ( max-width : 48em ) {
+
+  .album-songs-container {
+    width: 100%;
+  }
 }

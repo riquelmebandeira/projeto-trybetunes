@@ -1,24 +1,32 @@
+.page-search {
+  padding: 0 1rem;
+}
+
 .search-form-container form {
+  box-shadow: 0 0.2rem 0.3rem rgba(0, 0, 0, 0.3);
   display: flex;
-  gap: 20px;
-  margin: auto;
-  margin-top: 40px;
-  padding: 60px;
-  width: 600px;
+  justify-content: space-between;
+  margin: 8rem auto;
+  max-width: 50rem;
 }
 
 .search-form-container form input {
-  border-radius: 6px;
-  font-family: Verdana , Geneva , Tahoma , sans-serif;
-  font-size: 16px;
-  height: 32px;
-  text-indent: 10px;
-  width: 400px;
+  border: none;
+  font-size: 1.6rem;
+  text-indent: 1.6rem;
+  width: 100%;
+}
+
+.search-form-container form input:focus {
+  outline: none;
 }
 
 .search-form-container form button {
   background-color: #003be5;
+  border: none;
   color: white;
+  cursor: pointer;
+  font-size: 1.6rem;
   height: 38px;
   width: 100px;
 }
@@ -26,5 +34,6 @@
 .search-form-container form button:disabled {
   background: rgb(160, 160, 160);
   color: rgb(75, 75, 75);
+  cursor: auto;
   opacity: 0.6;
 }

@@ -15,6 +15,7 @@ class ProfileStructure extends React.Component {
             src={ image || noPicture }
             alt="Foto de perfil"
             data-testid="profile-image"
+            className="mb-sm"
           />
           <Link
             to="/profile/edit"
@@ -24,9 +25,9 @@ class ProfileStructure extends React.Component {
           </Link>
         </div>
         <h4>Nome</h4>
-        <p>{ name }</p>
+        <p className="mb-sm">{ name }</p>
         <h4>E-mail</h4>
-        <p>{ email || 'Você ainda não inseriu seu email.' }</p>
+        <p className="mb-sm">{ email || 'Você ainda não inseriu seu email.' }</p>
         <h4>Descrição</h4>
         <p>{ description || 'Você ainda não inseriu uma descrição' }</p>
       </section>

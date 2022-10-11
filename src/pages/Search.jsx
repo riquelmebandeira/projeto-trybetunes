@@ -45,35 +45,37 @@ class Search extends React.Component {
     const { isSearching, receivedAlbums, artistName, storedArtistName } = this.state;
 
     return (
-      <div data-testid="page-search">
+      <>
         <Header />
-        <section className="search-form-container">
-          <form>
-            <input
-              type="text"
-              data-testid="search-artist-input"
-              placeholder="Nome do Artista"
-              value={ artistName }
-              onChange={ this.handleChange }
-            />
-            <button
-              type="submit"
-              data-testid="search-artist-button"
-              disabled={ artistName.length < 2 }
-              onClick={ this.toSearch }
-            >
-              Procurar
-            </button>
-          </form>
-        </section>
-        { isSearching ? <Loading />
-          : (
-            receivedAlbums && <AlbumsList
-              albums={ receivedAlbums }
-              artistName={ storedArtistName }
-            />
-          )}
-      </div>
+        <main className="page-search">
+          <section className="search-form-container">
+            <form>
+              <input
+                type="text"
+                data-testid="search-artist-input"
+                placeholder="Nome do Artista"
+                value={ artistName }
+                onChange={ this.handleChange }
+              />
+              <button
+                type="submit"
+                data-testid="search-artist-button"
+                disabled={ artistName.length < 2 }
+                onClick={ this.toSearch }
+              >
+                Procurar
+              </button>
+            </form>
+          </section>
+          { isSearching ? <Loading />
+            : (
+              receivedAlbums && <AlbumsList
+                albums={ receivedAlbums }
+                artistName={ storedArtistName }
+              />
+            )}
+        </main>
+      </>
     );
   }
 }
