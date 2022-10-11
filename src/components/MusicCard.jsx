@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { FaHeart, FaRegHeart } from 'react-icons/fa';
 import Loading from './Loading';
 import { addSong, removeSong, getFavoriteSongs } from '../services/favoriteSongsAPI';
 import '../styles/components/MusicCard.css';
@@ -9,63 +10,66 @@ class MusicCard extends React.Component {
     super();
     this.state = {
       loading: false,
-      favorites: [],
+      isFavorite: false,
     };
   }
 
-  componentDidMount() {
-    this.setFavorites();
-  }
-
   componentDidUpdate() {
-    this.setFavorites();
+    this.setFavorite();
   }
 
-  setFavorites = async () => {
-    this.setState({ favorites: await getFavoriteSongs() });
+  setFavorite = async () => {
+    const { trackInfo: { trackId } } = this.props;
+    const favoriteSongs = await getFavoriteSongs();
+    const isFavorite = favoriteSongs.some((song) => song.trackId === trackId);
+    this.setState({ isFavorite });
   }
 
   handleTrack = async ({ target: { checked } }) => {
     const { trackInfo: trackId } = this.props;
-
     this.setState({ loading: true });
-
     if (checked) { await addSong(trackId); } else { await removeSong(trackId); }
-
     this.setState({ loading: false });
   };
 
   render() {
-    const { trackInfo, isFavorite } = this.props;
+    const { trackInfo } = this.props;
     const { trackId, trackName, previewUrl, artworkUrl100 } = trackInfo;
-
-    const { loading, favorites } = this.state;
+    const { loading, isFavorite } = this.state;
 
     if (loading) return <Loading />;
 
     return (
       <div className="music-card-container" key={ trackId }>
-        { isFavorite && <img src={ artworkUrl100 } alt="foto do álbum" />}
+        <img src={ artworkUrl100 } alt="foto do álbum" />
         <span>
           { trackName }
         </span>
-        <audio data-testid="audio-component" src={ previewUrl } controls>
+        <audio
+          className="audio-player"
+          data-testid="audio-component"
+          src={ previewUrl }
+          controls
+          controlsList="nodownload noplaybackrate"
+        >
           <track kind="captions" />
           O seu navegador não suporta o elemento
           {' '}
           <code>audio</code>
           .
         </audio>
-        <label htmlFor={ trackId }>
+        <div className="favorite-icon-container">
+          <label htmlFor={ trackId }>
+            { isFavorite ? <FaHeart /> : <FaRegHeart />}
+          </label>
           <input
             type="checkbox"
             id={ trackId }
             data-testid={ `checkbox-music-${trackId}` }
-            checked={ favorites.some((song) => song.trackId === trackId) }
+            checked={ isFavorite }
             onChange={ (e) => this.handleTrack(e) }
           />
-          Favorita
-        </label>
+        </div>
       </div>
     );
   }
@@ -78,11 +82,6 @@ MusicCard.propTypes = {
     previewUrl: PropTypes.string.isRequired,
     artworkUrl100: PropTypes.string.isRequired,
   }).isRequired,
-  isFavorite: PropTypes.bool,
-};
-
-MusicCard.defaultProps = {
-  isFavorite: false,
 };
 
 export default MusicCard;
