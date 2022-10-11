@@ -31,16 +31,8 @@ class ProfileEdit extends React.Component {
     });
   }
 
-  handleSubmit = async (e) => {
-    e.preventDefault();
-
-    try {
-      await updateUser({ ...this.state });
-
-      window.location.href = 'http://localhost:3000/profile';
-    } catch (error) {
-      console.log(error);
-    }
+  handleSubmit = async () => {
+    await updateUser({ ...this.state });
   };
 
   render() {
@@ -99,7 +91,7 @@ class ProfileEdit extends React.Component {
                 || !EMAIL_REGEX.test(email)
                 || !description
                 }
-                onClick={ (e) => this.handleSubmit(e) }
+                onClick={ () => this.handleSubmit() }
               >
                 Salvar
               </button>
